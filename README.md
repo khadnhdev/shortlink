@@ -53,19 +53,44 @@ A modern URL shortening service built with Node.js and Express.
 
 POST /shorten
 
-Request body:
+**Request Body:**
+```json
 {
   "url": "https://example.com/long-url",
-  "customSlug": "custom-name",     // optional
-  "password": "secretpass",        // optional
-  "expiresIn": "7:days"           // optional
+  "customSlug": "custom-name",      // Optional
+  "password": "secretpass",         // Optional
+  "expiresIn": "7:days"            // Optional
 }
+```
+
+**Response:**
+```json
+{
+  "shortUrl": "https://srl.ink/abc123",
+  "qrCode": "data:image/png;base64,..."
+}
+```
 
 ### Access Short URL
 
+**Base URL:**
+```
 GET /{shortId}
-GET /{shortId}?preview=true    // Preview mode
-GET /{shortId}?password=pass   // Protected URLs
+```
+
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `preview` | `boolean` | Show preview page instead of direct redirect |
+| `password` | `string` | Required for password-protected URLs |
+
+**Examples:**
+```
+GET /abc123              # Direct redirect
+GET /abc123?preview=true # Show preview page
+GET /abc123?password=123 # Access protected URL
+```
 
 ## Environment Variables
 
