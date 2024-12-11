@@ -1,0 +1,25 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "URL Shortener with advanced features",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "qrcode": "^1.5.3",
+    "sqlite3": "^5.1.7",
+    "shortid": "^2.2.16",
+    "geoip-lite": "^1.4.9",
+    "express-device": "^0.4.2",
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

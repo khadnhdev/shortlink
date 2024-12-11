@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Make Long Links Short</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">URL Shortener</h1>
+            <p class="lead text-muted">Transform your long URLs into short, memorable links</p>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body p-4">
+                <form id="urlForm">
+                    <div class="mb-4">
+                        <label class="form-label">Enter your long URL</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-link"></i></span>
+                            <input type="url" class="form-control" id="url" placeholder="https://example.com/your-long-url" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Custom Alias (Optional)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                <input type="text" class="form-control" id="customSlug" placeholder="your-custom-name">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Password Protection (Optional)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="Set a password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Expiration Time</label>
+                        <select class="form-control" id="expiresIn">
+                            <option value="">Never Expire</option>
+                            <option value="1:days">24 Hours</option>
+                            <option value="7:days">7 Days</option>
+                            <option value="30:days">30 Days</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cut me-2"></i>Shorten URL
+                        </button>
+                    </div>
+                </form>
+
+                <div id="result" class="mt-4 result-container" style="display: none;">
+                    <hr>
+                    <h5 class="text-center mb-4">Your Shortened URL is Ready!</h5>
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="shortUrl" readonly>
+                            <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard()">
+                                <i class="fas fa-copy me-2"></i>Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <img id="qrCode" class="mt-3" style="max-width: 200px;">
+                        <br>
+                        <a id="qrDownload" class="btn btn-outline-primary mt-3">
+                            <i class="fas fa-download me-2"></i>Download QR Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-5">
+            <div class="col-md-4">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h5>Secure Links</h5>
+                <p class="text-muted">Optional password protection for your links</p>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-icon">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <h5>QR Codes</h5>
+                <p class="text-muted">Instantly generate QR codes for easy sharing</p>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h5>Link Expiration</h5>
+                <p class="text-muted">Set expiration dates for temporary links</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
