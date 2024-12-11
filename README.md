@@ -36,17 +36,6 @@ A modern URL shortening service built with Node.js and Express.
 4. Start the server using npm start
 5. For development, use npm run dev
 
-## Project Structure
-
-📁 url-shortener/
-├── 📁 public/           # Static assets
-│   ├── css/
-│   └── js/
-├── 📁 views/           # EJS templates
-├── app.js             # Main application
-├── .env               # Configuration
-└── package.json       # Dependencies
-
 ## API Usage
 
 ### Create Short URL
